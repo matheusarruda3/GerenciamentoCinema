@@ -55,6 +55,7 @@ Depois, configure a conexão no `backend/appsettings.json`:
   "DefaultConnection": "Host=localhost;Port=5432;Database=cinema;Username=postgres;Password=sua_senha"
 }
 ```
+Talvez seja necessário instalar o pacote Npgsql.EntityFrameworkCore.PostgreSQL
 ### 3. Rodar o Backend
 No diretório `backend/`:
 ```bash
