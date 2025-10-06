@@ -37,3 +37,49 @@ Execute no **pgAdmin** ou via terminal:
 
 ```bash
 psql -U postgres -d cinema -f backend/database.sql
+```
+## Como Rodar o Projeto
+### 1. Clonar o Repositório
+```bash
+git clone https://github.com/matheusarruda3/GerenciamentoCinema.git
+cd GerenciamentoCinema
+```
+### 2. Configurar o Banco de Dados
+Crie um banco no PostgreSQL chamado cinema e execute o script:
+```bash
+psql -U postgres -d cinema -f backend/database.sql
+```
+Depois, configure a conexão no `backend/appsettings.json`:
+```bash
+"ConnectionStrings": {
+  "DefaultConnection": "Host=localhost;Port=5432;Database=cinema;Username=postgres;Password=sua_senha"
+}
+```
+### 3. Rodar o Backend
+No diretório `backend/`:
+```bash
+dotnet restore
+dotnet run
+```
+A API será executada em:
+http://localhost:5200 
+### 4. Rodar o Frontend
+No diretório `frontend/`:
+```bash
+npm install
+ng serve
+```
+A aplicação será executada em:
+http://localhost:4200 
+
+
+
+
+
+
+
+
+
+
+
+
