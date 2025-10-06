@@ -60,9 +60,9 @@ export class SessaoFormComponent implements OnInit {
 
   atualizarCapacidade() {
     if (['1', '2', '3'].includes(this.form.sala)) {
-      this.form.capacidade = 300;
+      this.form.capacidade = 100;
     } else if (['4', '5'].includes(this.form.sala)) {
-      this.form.capacidade = 250;
+      this.form.capacidade = 150;
     } else {
       this.form.capacidade = 0;
     }
@@ -73,14 +73,14 @@ export class SessaoFormComponent implements OnInit {
   }
 
   salvar() {
-    // 🧩 Converte o campo sessaoStatus → status antes de enviar
+   
     const payload = {
       nomeFilme: this.form.nomeFilme,
       sala: this.form.sala,
       capacidade: this.form.capacidade,
       duracaoMinutos: this.form.duracaoMinutos,
       dataHora: this.form.dataHora,
-      status: Number(this.form.sessaoStatus) // 👈 backend espera "Status"
+      status: Number(this.form.sessaoStatus) 
     };
 
     if (this.isEdit) {
