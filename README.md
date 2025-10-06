@@ -31,7 +31,7 @@
 ##  Banco de Dados (PostgreSQL)
 
 O script para criação das tabelas está em:  
-📄 `backend/database.sql`
+`backend/database.sql`
 
 Execute no **pgAdmin** ou via terminal:
 
