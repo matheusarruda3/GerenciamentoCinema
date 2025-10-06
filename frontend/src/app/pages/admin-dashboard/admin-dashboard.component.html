@@ -1,0 +1,41 @@
+<div class="container">
+  <h1 class="titulo"> Gerenciamento de Sessões</h1>
+
+  <div class="top-bar">
+    <button class="add" routerLink="/sessao/nova">Nova Sessão</button>
+    <button class="view" routerLink="/sessoes/disponiveis">Ver Sessões Disponíveis</button>
+  </div>
+
+  <table *ngIf="sessoes.length > 0; else vazio">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Filme</th>
+        <th>Sala</th>
+        <th>Data</th>
+        <th>Capacidade</th>
+        <th>Status</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let s of sessoes">
+        <td>{{ s.id }}</td>
+        <td>{{ s.nomeFilme }}</td>
+        <td>{{ s.sala }}</td>
+        <td>{{ s.dataHora | date:'short' }}</td>
+        <td>{{ s.capacidade }}</td>
+        <td>{{ statusLabel(s.sessaoStatus) }}</td>
+        <td class="acoes">
+          <button class="editar" [routerLink]="['/sessao/editar', s.id]">Editar</button>
+          <button class="excluir" (click)="removerSessao(s.id)">Excluir</button>
+          <button class="assentos" (click)="verAssentos(s.id)">Reservar Assentos</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #vazio>
+    <p class="vazio">Nenhuma sessão cadastrada.</p>
+  </ng-template>
+</div>

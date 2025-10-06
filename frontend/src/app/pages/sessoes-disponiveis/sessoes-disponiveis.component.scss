@@ -1,0 +1,39 @@
+.container {
+  padding: 40px;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+}
+
+.titulo {
+  color: #1e3a8a;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+thead {
+  background: #2563eb;
+  color: white;
+}
+
+th, td {
+  padding: 12px;
+  text-align: center;
+}
+
+tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+.erro {
+  color: #dc2626;
+  font-weight: bold;
+  margin-top: 15px;
+}

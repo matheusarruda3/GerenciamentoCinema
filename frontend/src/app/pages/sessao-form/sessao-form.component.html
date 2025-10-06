@@ -1,0 +1,93 @@
+<div class="container">
+  <h1 class="titulo">
+    {{ isEdit ? ' Editar Sessão' : ' Nova Sessão' }}
+  </h1>
+
+  <form (ngSubmit)="salvar()" #sessaoForm="ngForm">
+    <div class="form-group">
+      <label for="nomeFilme"> Nome do Filme</label>
+      <input
+        type="text"
+        id="nomeFilme"
+        name="nomeFilme"
+        [(ngModel)]="form.nomeFilme"
+        required
+      />
+    </div>
+
+    
+    <div class="form-group">
+      <label for="sala"> Sala</label>
+      <select
+        id="sala"
+        name="sala"
+        [(ngModel)]="form.sala"
+        required
+        (change)="atualizarCapacidade()"
+      >
+        <option value="">Selecione uma sala</option>
+        <option value="1">Sala 1</option>
+        <option value="2">Sala 2</option>
+        <option value="3">Sala 3</option>
+        <option value="4">Sala 4</option>
+        <option value="5">Sala 5</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label> Capacidade</label>
+      <input
+        type="number"
+        name="capacidade"
+        [(ngModel)]="form.capacidade"
+        disabled
+      />
+    </div>
+
+   
+    <div class="form-group">
+      <label> Duração (minutos)</label>
+      <input
+        type="number"
+        name="duracaoMinutos"
+        [(ngModel)]="form.duracaoMinutos"
+        required
+        min="1"
+      />
+    </div>
+
+    <div class="form-group">
+      <label> Data e Hora</label>
+      <input
+        type="datetime-local"
+        name="dataHora"
+        [(ngModel)]="form.dataHora"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Status da Sessão</label>
+      <select name="sessaoStatus" [(ngModel)]="form.sessaoStatus">
+        <option [value]="0">Disponível</option>
+        <option [value]="1">Cancelada</option>
+        <option [value]="2">Em Andamento</option>
+        <option [value]="3">Finalizada</option>
+      </select>
+    </div>
+
+
+    <div class="botoes">
+      <button
+        type="submit"
+        [disabled]="!sessaoForm.form.valid"
+        class="salvar"
+      >
+        {{ isEdit ? ' Salvar Alterações' : 'Criar Sessão' }}
+      </button>
+      <button type="button" class="cancelar" (click)="cancelar()">
+         Cancelar
+      </button>
+    </div>
+  </form>
+</div>

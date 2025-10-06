@@ -1,0 +1,40 @@
+<div class="container">
+  <h2 class="titulo">Assentos da Sessão</h2>
+
+  <div *ngIf="sessao; else carregando">
+    <p><strong>Filme:</strong> {{ sessao.nomeFilme }}</p>
+    <p><strong>Sala:</strong> {{ sessao.sala }}</p>
+    <p><strong>Data:</strong> {{ sessao.dataHora | date:'short' }}</p>
+  </div>
+
+  <div class="assentos-grid" *ngIf="sessao">
+  <button
+    *ngFor="let n of [].constructor(sessao.capacidade); let i = index"
+    [disabled]="reservados.includes(i + 1)"
+    [ngClass]="{
+      reservado: reservados.includes(i + 1),
+      selecionado: assentoSelecionado === i + 1
+    }"
+    (click)="selecionarAssento(i + 1)"
+  >
+    {{ i + 1 }}
+  </button>
+</div>
+
+
+  <div *ngIf="assentoSelecionado" class="confirmacao">
+  <p>Assento selecionado: <strong>{{ assentoSelecionado }}</strong></p>
+  
+  <div class="botoes-acoes">
+    <button class="confirmar" (click)="confirmarReserva()"> Confirmar</button>
+    <button class="cancelar" (click)="cancelarSelecao()"> Cancelar</button>
+  </div>
+</div>
+
+
+  <p class="feedback" [class.ok]="ok">{{ feedback }}</p>
+
+  <ng-template #carregando>
+    <p>Carregando sessão...</p>
+  </ng-template>
+</div>

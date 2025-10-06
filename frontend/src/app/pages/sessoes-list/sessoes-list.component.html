@@ -1,0 +1,19 @@
+<div class="container">
+  <h1 class="titulo"> Sessões Disponíveis</h1>
+
+  <div *ngIf="sessoes.length === 0" class="vazio">
+    Nenhuma sessão cadastrada no momento.
+  </div>
+
+  <div class="grid">
+    <div class="sessao-card" *ngFor="let s of sessoes" [routerLink]="['/sessao', s.id]">
+      <div class="filme">{{ s.nomeFilme }}</div>
+      <div class="info">
+        <p><strong>Sala:</strong> {{ s.sala }}</p>
+        <p><strong>Data:</strong> {{ s.dataHora | date:'short' }}</p>
+        <p><strong>Status:</strong> {{ s.sessaoStatus }}</p>
+      </div>
+      <button class="botao">Ver Detalhes</button>
+    </div>
+  </div>
+</div>

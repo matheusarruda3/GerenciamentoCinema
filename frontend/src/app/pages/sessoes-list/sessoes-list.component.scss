@@ -1,0 +1,57 @@
+.container {
+  padding: 32px;
+  max-width: 1000px;
+  margin: auto;
+  font-family: 'Poppins', sans-serif;
+}
+
+.titulo {
+  font-size: 2rem;
+  margin-bottom: 24px;
+  text-align: center;
+  color: #111827;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.sessao-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.sessao-card:hover {
+  transform: translateY(-4px);
+}
+
+.filme {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2563eb;
+  margin-bottom: 8px;
+}
+
+.info p {
+  margin: 4px 0;
+  font-size: 0.9rem;
+  color: #374151;
+}
+
+.botao {
+  margin-top: 12px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+.botao:hover {
+  background: #1e40af;
+}

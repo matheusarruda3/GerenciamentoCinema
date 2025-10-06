@@ -1,0 +1,27 @@
+<div class="container">
+  <h1 class="titulo">Sessões Disponíveis</h1>
+
+  <div *ngIf="carregando">Carregando...</div>
+  <div *ngIf="erro" class="erro">{{ erro }}</div>
+
+  <table *ngIf="!carregando && sessoes.length > 0">
+    <thead>
+      <tr>
+        <th>Filme</th>
+        <th>Sala</th>
+        <th>Data e Hora</th>
+        <th>Capacidade</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let s of sessoes">
+        <td>{{ s.nomeFilme }}</td>
+        <td>{{ s.sala }}</td>
+        <td>{{ s.dataHora | date: 'short' }}</td>
+        <td>{{ s.capacidade }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="!carregando && sessoes.length === 0">Nenhuma sessão ativa.</p>
+</div>
