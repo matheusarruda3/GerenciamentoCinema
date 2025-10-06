@@ -7,7 +7,7 @@
 - **C#**
 
 ###  Frontend
-- **Angular 17**
+- **Angular 20**
 - **TypeScript**
 - **HTML / SCSS**
 
