@@ -41,7 +41,7 @@ public class CinemaService : ICinemaService
             NomeFilme = data.NomeFilme,
             Sala = data.Sala,
             Capacidade = data.Capacidade,
-            DataHora = DateTime.SpecifyKind(data.DataHora, DateTimeKind.Utc),
+            DataHora = DateTime.SpecifyKind(data.DataHora, DateTimeKind.Local).ToUniversalTime(),
             DuracaoMinutos = data.DuracaoMinutos,
             SessaoStatus = data.Status
         };
